@@ -1,6 +1,8 @@
-// Kalibrācija
-int virzienaBiggestValue;
-// Vēja ātrumam
+#include <EEPROM.h>
+
+// Calibration
+int LargestDirectionValue;
+// Wind speed
 #define MainPeriod 450
 long previousMillis = 0;
 volatile unsigned long duration=0;
@@ -11,21 +13,34 @@ volatile unsigned long previousMicros=0;
 void calibration()
 {
   Serial.println("Calibration started!");
-  while(analogRead(A0)+10 >= virzienaBiggestValue)
+  while(analogRead(A0)+10 >= LargestDirectionValue)
   {
-    virzienaBiggestValue = analogRead(A0);
-    Serial.println(virzienaBiggestValue);
+    if(LargestDirectionValue < analogRead(A0))
+    {
+      LargestDirectionValue = analogRead(A0);
+    }
+    delayMicroseconds(250);
   }
+  EEPROM.write(0, LargestDirectionValue & 0xFF);
+  EEPROM.write(1, LargestDirectionValue >> 8);
   Serial.println("Calibrated!");
 }
 
 void setup() {
   Serial.begin(9600);
-  calibration();
+  pinMode(7, INPUT);
+  if(digitalRead(7) == HIGH)
+  {
+    calibration();
+  }
   attachInterrupt(digitalPinToInterrupt(2), windFreqDuration, RISING);
+
+  LargestDirectionValue = EEPROM.read(1);
+  LargestDirectionValue <<= 8;
+  LargestDirectionValue |= EEPROM.read(0);
 }
 
-String graadiUzVirzienu(float grdi)
+String AngleToDirection(float grdi)
 {
   if(grdi >= 348.75 or grdi <= 11.25)
   {
@@ -51,12 +66,12 @@ String graadiUzVirzienu(float grdi)
 
 void loop() {
   
-  // Vēja virziena noteikšana //
+  // Wind direction measure //
   
   int value = analogRead(A0);
-  float graadi = ((float)value / (float)virzienaBiggestValue) * 360.0;
+  float angle = ((float)value / (float)LargestDirectionValue) * 360.0;
   
-  // Vēja ātruma noteikšana //
+  // Wind speed measure //
   
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= MainPeriod) 
@@ -71,14 +86,14 @@ void loop() {
     Freq *= _pulsecount; // calculate F
 
     float windSpeed = 0.765 * Freq + 0.35;
-    Serial.print("Virziens");
+    Serial.print("Direction");
     Serial.print(" ");
-    Serial.print("Grādi");
+    Serial.print("Angle");
     Serial.print(" ");
-    Serial.println("Ātrums");
-    Serial.print(graadiUzVirzienu(graadi));
+    Serial.println("Speed");
+    Serial.print(AngleToDirection(angle));
     Serial.print("    ");
-    Serial.print(graadi);
+    Serial.print(angle);
     Serial.print(" ");
     Serial.print(windSpeed);
     Serial.println("m/s");
@@ -88,7 +103,7 @@ void loop() {
   delay(250);
 }
 
-void windFreqDuration() // interrupt handler
+void windFreqDuration()
 {
   duration += micros() - previousMicros;
   previousMicros = micros();
