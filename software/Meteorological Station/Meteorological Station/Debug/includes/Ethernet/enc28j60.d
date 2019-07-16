@@ -14,6 +14,8 @@ includes/Ethernet/enc28j60.d includes/Ethernet/enc28j60.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  ../includes/Ethernet/ip_config.h ../includes/Ethernet/enc28j60.h \
  ../includes/Ethernet/../../Options.h \
+ ../includes/Ethernet/../../includes/RTC/rtc.h \
+ ../includes/Ethernet/../../includes/RTC/stdutils.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
@@ -45,5 +47,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../includes/Ethernet/enc28j60.h:
 
 ../includes/Ethernet/../../Options.h:
+
+../includes/Ethernet/../../includes/RTC/rtc.h:
+
+../includes/Ethernet/../../includes/RTC/stdutils.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:

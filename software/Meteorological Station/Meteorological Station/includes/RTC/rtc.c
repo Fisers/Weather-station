@@ -92,6 +92,12 @@ void RTC_Init(void)
              like 0x12,0x39,0x26 for 12hr,39min and 26sec.    
                   0x15,0x08,0x47 for 15th day,8th month and 47th year.                 
 ***************************************************************************************************/
+// Convert Decimal to Binary Coded Decimal (BCD)
+static uint8_t dec2bcd(uint8_t num)
+{
+	return ((num/10 * 16) + (num % 10));
+}
+
 void RTC_SetDateTime(rtc_t *rtc)
 {
     rtc_I2C_Start();                          // Start I2C communication
@@ -101,13 +107,13 @@ void RTC_SetDateTime(rtc_t *rtc)
     i2c_write(C_Ds1307WriteMode_U8);      // connect to DS1307 by sending its ID on I2c Bus
     i2c_write(C_Ds1307SecondRegAddress_U8); // Request sec RAM address at 00H
 
-    i2c_write(rtc->sec);                    // Write sec from RAM address 00H
-    i2c_write(rtc->min);                    // Write min from RAM address 01H
-    i2c_write(rtc->hour);                    // Write hour from RAM address 02H
-    i2c_write(rtc->weekDay);                // Write weekDay on RAM address 03H
-    i2c_write(rtc->date);                    // Write date on RAM address 04H
-    i2c_write(rtc->month);                    // Write month on RAM address 05H
-    i2c_write(rtc->year);                    // Write year on RAM address 06h*/
+    i2c_write(dec2bcd(rtc->sec));                    // Write sec from RAM address 00H
+    i2c_write(dec2bcd(rtc->min));                    // Write min from RAM address 01H
+    i2c_write(dec2bcd(rtc->hour));                    // Write hour from RAM address 02H
+    i2c_write(dec2bcd(rtc->weekDay));                // Write weekDay on RAM address 03H
+    i2c_write(dec2bcd(rtc->date));                    // Write date on RAM address 04H
+    i2c_write(dec2bcd(rtc->month));                    // Write month on RAM address 05H
+    i2c_write(dec2bcd(rtc->year));                    // Write year on RAM address 06h*/
 
     i2c_stop();                              // Stop I2C communication after Setting the Date
 }
@@ -115,11 +121,7 @@ void RTC_SetDateTime(rtc_t *rtc)
 
 
 
-// Convert Decimal to Binary Coded Decimal (BCD)
-static uint8_t dec2bcd(uint8_t num)
-{
-	return ((num/10 * 16) + (num % 10));
-}
+
 
 // Convert Binary Coded Decimal (BCD) to Decimal
 static uint8_t bcd2dec(uint8_t num)

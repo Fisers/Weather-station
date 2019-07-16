@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <avr/eeprom.h>
+#include <inttypes.h>
 // http://www.nongnu.org/avr-libc/changes-1.8.html:
 #define __PROG_TYPES_COMPAT__
 #include <avr/pgmspace.h>
@@ -15,13 +16,14 @@
 #include "net.h"
 #include "dnslkup.h"
 #include "../../Options.h"
+#include "../RTC/rtc.h"
 
 
 static uint8_t mymac[6] = {0x54,0x55,0x58,0x10,0x00,0x29};
-static uint8_t myip[4] = {192,168,0,101};
-#define WEBSERVER_VHOST "192.168.0.100"
+uint8_t myip[4] = {192,168,0,101};
+char serverip[16] = "192.168.0.100";
 #define MYWWWPORT 80
-static uint8_t gwip[4] = {192,168,0,1};
+uint8_t gwip[4] = {192,168,0,1};
 //
 // --- there should not be any need to changes things below this line ---
 #define TRANS_NUM_GWMAC 1
@@ -32,7 +34,7 @@ static uint8_t otherside_www_ip[4]; // will be filled by dnslkup
 //
 //
 //
-#define BUFFER_SIZE 256
+#define BUFFER_SIZE 128
 static uint8_t buf[BUFFER_SIZE+1];
 volatile uint8_t sec=0;
 static volatile uint8_t cnt2step=0;
@@ -85,19 +87,7 @@ void arpresolver_result_callback(uint8_t *ip __attribute__((unused)),uint8_t tra
         }
 }
 
-static uint8_t pingsrcip[4];
-void ping_callback(uint8_t *ip){
-	uint8_t i=0;
-	// trigger only first time in case we get many ping in a row:
-	if (start_web_client==0){
-		start_web_client=1;
-		// save IP from where the ping came:
-		while(i<4){
-			pingsrcip[i]=ip[i];
-			i++;
-		}
-	}
-}
+
 
 
 void Ether_SendPacket(char* text){
@@ -132,14 +122,18 @@ void Ether_SendPacket(char* text){
 			sscanf((char *)&(buf[dat_p]), "POST / timeout %d", &timeout);
 			eeprom_write_word((uint16_t*)0x10, (uint16_t)timeout);
 		}
+		else if (strncmp("POST / setrtc",(char *)&(buf[dat_p]),13)==0){
+			//rtc_t tempRtc;
+			sscanf((char *)&(buf[dat_p]), "POST / setrtc %"SCNu8"/%"SCNu8"/%"SCNu8" %"SCNu8"/%"SCNu8"/%"SCNu8, &rtc.date, &rtc.month, &rtc.year, &rtc.hour, &rtc.min, &rtc.sec);
+			RTC_SetDateTime(&rtc);
+		}
 }
 
 
 void Ether_init()
 {
 	 uint8_t i;
-	 uint16_t dat_p,plen;
-	 char str[20];
+	 uint16_t plen;
 
 	 // Set the clock speed to "no pre-scaler" (8MHz with internal osc or
 	 // full external speed)
@@ -178,7 +172,7 @@ void Ether_init()
 		 packetloop_arp_icmp_tcp(buf,plen);
 	 }
 
-	 parse_ip(otherside_www_ip,WEBSERVER_VHOST);
+	 parse_ip(otherside_www_ip,serverip);
 	 processing_state=2; // no need to do any dns look-up
 	 
 	 while(processing_state != 4)
@@ -202,9 +196,6 @@ void Ether_init()
 			 processing_state=4;
 		 }
 	 }
-
-	 // register to be informed about incomming ping:
-	 register_ping_rec_callback(&ping_callback);
 }
 
 

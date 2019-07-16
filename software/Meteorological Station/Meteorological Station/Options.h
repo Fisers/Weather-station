@@ -9,6 +9,8 @@
 #ifndef OPTIONS_H_
 #define OPTIONS_H_
 
+#include "includes/RTC/rtc.h"
+
 #define F_CPU 16000000UL // Defining the CPU Frequency for Delay Calculation in delay.h
 #define BAUD 9600
 #define PORT_CS PORTD
@@ -17,6 +19,11 @@
 #define SD_CS PINB1
 
 extern unsigned int timeout; // in seconds
+extern rtc_t rtc;
+
+extern uint8_t myip[4];
+extern char serverip[16];
+extern uint8_t gwip[4];
 
 
 

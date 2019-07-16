@@ -11,7 +11,9 @@ includes/SPI/SPI.d includes/SPI/SPI.o: ../includes/SPI/SPI.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- ../includes/SPI/SPI.h ../includes/SPI/../../Options.h
+ ../includes/SPI/SPI.h ../includes/SPI/../../Options.h \
+ ../includes/SPI/../../includes/RTC/rtc.h \
+ ../includes/SPI/../../includes/RTC/stdutils.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -40,3 +42,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../includes/SPI/SPI.h:
 
 ../includes/SPI/../../Options.h:
+
+../includes/SPI/../../includes/RTC/rtc.h:
+
+../includes/SPI/../../includes/RTC/stdutils.h:

@@ -13,7 +13,10 @@ includes/FatFs/mmc_avr.d includes/FatFs/mmc_avr.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  ../includes/FatFs/diskio.h ../includes/FatFs/integer.h \
- ../includes/FatFs/../../Options.h
+ ../includes/FatFs/../../Options.h \
+ ../includes/FatFs/../../includes/RTC/rtc.h \
+ ../includes/FatFs/../../includes/RTC/stdutils.h \
+ ../includes/FatFs/../SPI/SPI.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -44,3 +47,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../includes/FatFs/integer.h:
 
 ../includes/FatFs/../../Options.h:
+
+../includes/FatFs/../../includes/RTC/rtc.h:
+
+../includes/FatFs/../../includes/RTC/stdutils.h:
+
+../includes/FatFs/../SPI/SPI.h:
