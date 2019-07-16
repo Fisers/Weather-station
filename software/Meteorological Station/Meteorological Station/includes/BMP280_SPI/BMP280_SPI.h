@@ -1,4 +1,3 @@
-int BMP_CS;
 int32_t t_fine;
 
 typedef struct {
@@ -26,5 +25,5 @@ typedef struct {
 bmp280_calib_data _bmp280_calib;
 
 
-extern void bmp280_init(int pin);
+extern void bmp280_init();
 extern float bmp280_readPressure();

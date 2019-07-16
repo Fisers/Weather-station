@@ -8,6 +8,7 @@
 #include <avr/io.h>
 #include "BMP280_SPI.h"
 #include "../SPI/SPI.h"
+#include "../../Options.h"
 
 static void readCalibration() {
 	_bmp280_calib.dig_T1 = spi_read16(0x88, BMP_CS);
@@ -60,13 +61,15 @@ static float bmp280_compensate_pressure(int32_t adc_P)
 	return (float)p / 256;
 }
 
-void bmp280_init(int pin) {
-	BMP_CS = pin;
-	
-	PORTB &= ~(1<<BMP_CS); // Power On the module
+void bmp280_init() {
+	DDRD |= (1 << BMP_CS);
+	PORT_CS &= ~(1<<BMP_CS); // Power On the module
 	spi_rwSPI(0b01110100);
 	spi_rwSPI(0xFF);
-	PORTB |= (1<<BMP_CS);
+	
+	spi_rwSPI(0xF4);
+	spi_rwSPI(0b01010111);
+	PORT_CS |= (1<<BMP_CS);
 	
 	readCalibration();
 }

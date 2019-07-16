@@ -168,6 +168,84 @@
     <Compile Include="includes\BMP280_SPI\BMP280_SPI.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="includes\Ethernet\dnslkup.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\dnslkup.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\enc28j60.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\enc28j60.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\ip_arp_udp_tcp.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\ip_arp_udp_tcp.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\ip_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\net.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\test_web_client.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\test_web_client.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\timeout.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\websrv_help_functions.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\Ethernet\websrv_help_functions.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\FatFs\diskio.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\FatFs\ff.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\FatFs\ff.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\FatFs\ffconf.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\FatFs\integer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\FatFs\mmc_avr.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\HIH8120\hih8120.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\HIH8120\hih8120.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\I2C\i2cmaster.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\I2C\twimaster.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\RTC\rtc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\RTC\rtc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\RTC\stdutils.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="includes\SPI\SPI.c">
       <SubType>compile</SubType>
     </Compile>
@@ -180,18 +258,33 @@
     <Compile Include="includes\UART\uart.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="includes\WindSpeed\windSpeed.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\WindSpeed\windSpeed.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Options.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="includes\" />
     <Folder Include="includes\BMP280_SPI" />
+    <Folder Include="includes\FatFs\" />
+    <Folder Include="includes\I2C\" />
+    <Folder Include="includes\HIH8120" />
+    <Folder Include="includes\Ethernet" />
+    <Folder Include="includes\RTC\" />
     <Folder Include="includes\UART" />
     <Folder Include="includes\SPI" />
+    <Folder Include="includes\WindSpeed\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

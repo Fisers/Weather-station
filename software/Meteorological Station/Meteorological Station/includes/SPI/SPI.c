@@ -7,6 +7,7 @@
 
 #include <avr/io.h>
 #include "SPI.h"
+#include "../../Options.h"
 
 #define SCK PINB5
 #define MISO PINB4
@@ -41,23 +42,23 @@ BURST READ
 
 void spi_BurstRead(uint8_t addr, uint8_t buffer[], uint8_t countdown, int pin) {
 
-	PORTB &= ~(1<<pin);
+	PORT_CS &= ~(1<<pin);
 	spi_rwSPI(addr);
 	for (int i = 0; i < countdown; i++) {
 		*buffer++ = spi_rwSPI(0x00);
 	}
-	PORTB |= (1<<pin);
+	PORT_CS |= (1<<pin);
 }
 
 uint16_t spi_read16(uint8_t addr, int pin)
 {
-	PORTB &= ~(1<<pin);
+	PORT_CS &= ~(1<<pin);
 	spi_rwSPI(addr);
 	uint8_t buffer[2];
 	buffer[0] = spi_rwSPI(0x00);
 	buffer[1] = spi_rwSPI(0x00);
 	uint16_t receivedVal = (buffer[1] << 8) | buffer[0];
-	PORTB |= (1<<pin);
+	PORT_CS |= (1<<pin);
 	return receivedVal;
 }
 
