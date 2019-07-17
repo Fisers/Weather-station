@@ -50,7 +50,7 @@ static int8_t processing_state=0;
 void init_cnt2(void)
 {
 	cnt2step=0;
-	PRR&=~(1<<PRTIM2); // write power reduction register to zero
+	//PRR&=~(1<<PRTIM2); // write power reduction register to zero
 	TIMSK2=(1<<OCIE2A); // compare match on OCR2A
 	TCNT2=0;  // init counter
 	OCR2A=244; // value to compare against
