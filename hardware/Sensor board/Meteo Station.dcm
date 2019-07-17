@@ -1,0 +1,27 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP HIH8130
+D Current-Mode PWM Controllers, 100% Duty Cycle, 16V/10V UVLO, SOIC-8
+K SMPS PWM Controller
+F http://www.ti.com/lit/ds/symlink/uc3842.pdf
+$ENDCMP
+#
+$CMP UC3843_SOIC8_copy
+D Current-Mode PWM Controllers, 100% Duty Cycle, 8.4V/7.6V UVLO, SOIC-8
+K SMPS PWM Controller
+F http://www.ti.com/lit/ds/symlink/uc3842.pdf
+$ENDCMP
+#
+$CMP UC3844_SOIC8_copy
+D Current-Mode PWM Controllers, 50% Duty Cycle, 16V/10V UVLO, SOIC-8
+K SMPS PWM Controller
+F http://www.ti.com/lit/ds/symlink/uc3842.pdf
+$ENDCMP
+#
+$CMP UC3845_SOIC8_copy
+D Current-Mode PWM Controllers, 50% Duty Cycle, 8.4V/7.6V UVLO, SOIC-8
+K SMPS PWM Controller
+F http://www.ti.com/lit/ds/symlink/uc3842.pdf
+$ENDCMP
+#
+#End Doc Library
