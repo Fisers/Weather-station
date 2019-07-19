@@ -1,4 +1,4 @@
-15976738157170144
+15981428696425032
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -49090,6 +49090,27 @@ Switch_ON_OFF
 0
 4
 4
+Meteo footprints
+ENC28J60
+
+
+0
+10
+10
+Meteo footprints
+MCP6042-E&slash_P
+
+
+0
+8
+8
+Meteo footprints
+SCWN03A
+24-lead though-hole mounted DIP package, row spacing 15.24 mm (600 mils), Socket
+THT DIP DIL PDIP 2.54mm 15.24mm 600mil Socket
+0
+8
+8
 Module
 A20_OLINUXINO_LIME2
 A20 Olinuxino LIME2, 1.2GHz, 512-1024MB RAM, Micro-SD, NAND or eMMC, 1000Mbit Ethernet
