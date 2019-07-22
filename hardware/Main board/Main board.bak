@@ -1188,7 +1188,7 @@ Connection ~ 3550 3750
 Wire Wire Line
 	3550 3750 3700 3750
 $Comp
-L Connector:Screw_Terminal_01x12 J10
+L Connector:Screw_Terminal_01x10 J10
 U 1 1 5D5E4FDD
 P 5800 7300
 F 0 "J10" V 5925 7246 50  0000 C CNN
@@ -1220,39 +1220,31 @@ Text GLabel 7550 4450 2    50   Input ~ 0
 PC4
 Text GLabel 7550 4550 2    50   Input ~ 0
 PC5
-Text GLabel 7550 4650 2    50   Input ~ 0
-PC6
-Text GLabel 7550 4750 2    50   Input ~ 0
-PC7
 Text GLabel 7550 5150 2    50   Input ~ 0
 PD2
-Text GLabel 6300 7100 1    50   Input ~ 0
-PA2
 Text GLabel 6200 7100 1    50   Input ~ 0
-PA3
+PA2
 Text GLabel 6100 7100 1    50   Input ~ 0
-PA4
+PA3
 Text GLabel 6000 7100 1    50   Input ~ 0
-PA5
+PA4
 Text GLabel 5900 7100 1    50   Input ~ 0
+PA5
+Text GLabel 5800 7100 1    50   Input ~ 0
 PA6
 Text GLabel 4350 7100 1    50   Input ~ 0
 PA7
 Text GLabel 3800 7100 1    50   Input ~ 0
 PB0
-Text GLabel 5800 7100 1    50   Input ~ 0
-PC2
 Text GLabel 5700 7100 1    50   Input ~ 0
-PC3
+PC2
 Text GLabel 5600 7100 1    50   Input ~ 0
-PC4
+PC3
 Text GLabel 5500 7100 1    50   Input ~ 0
-PC5
+PC4
 Text GLabel 5400 7100 1    50   Input ~ 0
-PC6
+PC5
 Text GLabel 5300 7100 1    50   Input ~ 0
-PC7
-Text GLabel 5200 7100 1    50   Input ~ 0
 PD2
 $Comp
 L Connector:Screw_Terminal_01x04 J8
@@ -1991,4 +1983,145 @@ F 3 "" H 2750 2300 50  0001 C CNN
 	1    2750 2300
 	1    0    0    -1  
 $EndComp
+$Comp
+L Switch:SW_Push SW3
+U 1 1 5D3CBD40
+P 8150 6100
+F 0 "SW3" H 8150 6385 50  0000 C CNN
+F 1 "SW_Push" H 8150 6294 50  0000 C CNN
+F 2 "Button_Switch_SMD:Nidec_Copal_SH-7010A" H 8150 6300 50  0001 C CNN
+F 3 "~" H 8150 6300 50  0001 C CNN
+	1    8150 6100
+	1    0    0    -1  
+$EndComp
+Text GLabel 7550 4650 2    50   Input ~ 0
+PC6
+Text GLabel 7550 4750 2    50   Input ~ 0
+PC7
+Text GLabel 7900 6300 0    50   Input ~ 0
+PC6
+$Comp
+L Device:C_Small C19
+U 1 1 5D3CFD9C
+P 8150 6300
+F 0 "C19" V 8050 6300 50  0000 C CNN
+F 1 "100nF" V 8000 6300 31  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 8150 6300 50  0001 C CNN
+F 3 "~" H 8150 6300 50  0001 C CNN
+	1    8150 6300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R28
+U 1 1 5D3D182E
+P 7950 6000
+F 0 "R28" H 8009 6046 50  0000 L CNN
+F 1 "100k" H 8009 5955 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 7950 6000 50  0001 C CNN
+F 3 "~" H 7950 6000 50  0001 C CNN
+	1    7950 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR055
+U 1 1 5D3D2E07
+P 8350 6300
+F 0 "#PWR055" H 8350 6050 50  0001 C CNN
+F 1 "GND" V 8355 6172 50  0000 R CNN
+F 2 "" H 8350 6300 50  0001 C CNN
+F 3 "" H 8350 6300 50  0001 C CNN
+	1    8350 6300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7950 6100 7950 6300
+Wire Wire Line
+	7950 6300 7900 6300
+Connection ~ 7950 6100
+Wire Wire Line
+	7950 6300 8050 6300
+Connection ~ 7950 6300
+Wire Wire Line
+	8350 6100 8350 6300
+Wire Wire Line
+	8350 6300 8250 6300
+Connection ~ 8350 6300
+$Comp
+L power:VCC #PWR054
+U 1 1 5D4070DD
+P 7950 5900
+F 0 "#PWR054" H 7950 5750 50  0001 C CNN
+F 1 "VCC" H 7967 6073 50  0000 C CNN
+F 2 "" H 7950 5900 50  0001 C CNN
+F 3 "" H 7950 5900 50  0001 C CNN
+	1    7950 5900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R29
+U 1 1 5D4079F8
+P 8900 6000
+F 0 "R29" H 8959 6046 50  0000 L CNN
+F 1 "100k" H 8959 5955 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 8900 6000 50  0001 C CNN
+F 3 "~" H 8900 6000 50  0001 C CNN
+	1    8900 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW4
+U 1 1 5D40868C
+P 9100 6100
+F 0 "SW4" H 9100 6385 50  0000 C CNN
+F 1 "SW_Push" H 9100 6294 50  0000 C CNN
+F 2 "Button_Switch_SMD:Nidec_Copal_SH-7010A" H 9100 6300 50  0001 C CNN
+F 3 "~" H 9100 6300 50  0001 C CNN
+	1    9100 6100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C_Small C20
+U 1 1 5D4090B1
+P 9100 6300
+F 0 "C20" V 9000 6300 50  0000 C CNN
+F 1 "100nF" V 8950 6300 31  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 9100 6300 50  0001 C CNN
+F 3 "~" H 9100 6300 50  0001 C CNN
+	1    9100 6300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:GND #PWR057
+U 1 1 5D409B4C
+P 9300 6300
+F 0 "#PWR057" H 9300 6050 50  0001 C CNN
+F 1 "GND" V 9305 6172 50  0000 R CNN
+F 2 "" H 9300 6300 50  0001 C CNN
+F 3 "" H 9300 6300 50  0001 C CNN
+	1    9300 6300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	8900 6100 8900 6300
+Wire Wire Line
+	8900 6300 9000 6300
+Connection ~ 8900 6100
+Wire Wire Line
+	9200 6300 9300 6300
+Wire Wire Line
+	9300 6100 9300 6300
+Connection ~ 9300 6300
+$Comp
+L power:VCC #PWR056
+U 1 1 5D4242BB
+P 8900 5900
+F 0 "#PWR056" H 8900 5750 50  0001 C CNN
+F 1 "VCC" H 8917 6073 50  0000 C CNN
+F 2 "" H 8900 5900 50  0001 C CNN
+F 3 "" H 8900 5900 50  0001 C CNN
+	1    8900 5900
+	1    0    0    -1  
+$EndComp
+Text GLabel 8900 6300 0    50   Input ~ 0
+PC7
 $EndSCHEMATC
