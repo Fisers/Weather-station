@@ -1,4 +1,4 @@
-15986122030894682
+15987686086708413
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -49090,6 +49090,13 @@ Switch_ON_OFF
 0
 5
 3
+Meteo_Footprints
+Crystal_SMD
+SMD Crystal SERIES SMD2016/4 http://www.q-crystal.com/upload/5/2015552223166229.pdf, 2.0x1.6mm^2 package
+SMD SMT crystal
+0
+4
+4
 Meteo_Footprints
 ENC28J60
 
