@@ -638,17 +638,6 @@ Wire Wire Line
 	3800 5850 3800 6000
 Wire Wire Line
 	2650 3450 3300 3450
-$Comp
-L Main-board-rescue:SCWN03A-03-Meteo_Station U3
-U 1 1 5D3F6E91
-P 5500 1000
-F 0 "U3" H 5500 1467 50  0000 C CNN
-F 1 "SCWN03A-03" H 5500 1376 50  0000 C CNN
-F 2 "Meteo_Footprints:SCWN03A" H 5500 650 50  0001 C CIN
-F 3 "" H 5500 550 50  0001 C CNN
-	1    5500 1000
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6000 800  6250 800 
 Wire Wire Line
@@ -696,17 +685,6 @@ NoConn ~ 10100 1750
 NoConn ~ 10000 1750
 NoConn ~ 9700 900 
 NoConn ~ 9900 900 
-$Comp
-L Connector:Barrel_Jack_MountingPin J6
-U 1 1 5D473214
-P 4000 1000
-F 0 "J6" H 4057 1325 50  0000 C CNN
-F 1 "Barrel_Jack" H 4057 1234 50  0000 C CNN
-F 2 "Connector_BarrelJack:BarrelJack_Horizontal" H 4050 960 50  0001 C CNN
-F 3 "~" H 4050 960 50  0001 C CNN
-	1    4000 1000
-	1    0    0    -1  
-$EndComp
 $Comp
 L Device:R_Small R21
 U 1 1 5D4A50CE
@@ -858,18 +836,14 @@ Wire Wire Line
 $Comp
 L Switch:SW_SPST SW2
 U 1 1 5D4E4AA2
-P 4800 800
-F 0 "SW2" H 4800 1035 50  0000 C CNN
-F 1 "SW_SPST" H 4800 944 50  0000 C CNN
-F 2 "Meteo footprint:Switch_ON_OFF" H 4800 800 50  0001 C CNN
-F 3 "~" H 4800 800 50  0001 C CNN
-	1    4800 800 
+P 3650 1200
+F 0 "SW2" H 3650 1435 50  0000 C CNN
+F 1 "SW_SPST" H 3650 1344 50  0000 C CNN
+F 2 "Meteo footprint:Switch_ON_OFF" H 3650 1200 50  0001 C CNN
+F 3 "~" H 3650 1200 50  0001 C CNN
+	1    3650 1200
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4300 900  4300 800 
-Wire Wire Line
-	4300 800  4600 800 
 $Comp
 L Power_Protection:USB6B1 U7
 U 1 1 5D4EFB6C
@@ -1789,9 +1763,9 @@ F 3 "~" H 1450 1300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 5000 800  1    50   Input ~ 0
-12V
+230V
 Text GLabel 1700 1300 2    50   Input ~ 0
-12V
+230V
 Wire Wire Line
 	1450 1450 1450 1850
 Wire Wire Line
@@ -2460,17 +2434,6 @@ $EndComp
 Wire Wire Line
 	6250 800  6250 750 
 $Comp
-L power:GND #PWR0118
-U 1 1 5D3AC36E
-P 4000 1300
-F 0 "#PWR0118" H 4000 1050 50  0001 C CNN
-F 1 "GND" V 4005 1172 50  0000 R CNN
-F 2 "" H 4000 1300 50  0001 C CNN
-F 3 "" H 4000 1300 50  0001 C CNN
-	1    4000 1300
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR0119
 U 1 1 5D3AC7E0
 P 11150 3300
@@ -2540,28 +2503,6 @@ F 3 "" H 5600 7100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:GND #PWR0110
-U 1 1 5D3ED775
-P 4300 1100
-F 0 "#PWR0110" H 4300 850 50  0001 C CNN
-F 1 "GND" V 4305 972 50  0000 R CNN
-F 2 "" H 4300 1100 50  0001 C CNN
-F 3 "" H 4300 1100 50  0001 C CNN
-	1    4300 1100
-	0    -1   -1   0   
-$EndComp
-$Comp
-L power:GND #PWR0122
-U 1 1 5D3EDB11
-P 5000 1200
-F 0 "#PWR0122" H 5000 950 50  0001 C CNN
-F 1 "GND" V 5005 1072 50  0000 R CNN
-F 2 "" H 5000 1200 50  0001 C CNN
-F 3 "" H 5000 1200 50  0001 C CNN
-	1    5000 1200
-	0    1    1    0   
-$EndComp
-$Comp
 L Device:CP_Small C24
 U 1 1 5D3EE908
 P 6600 1000
@@ -2582,4 +2523,95 @@ Wire Wire Line
 Wire Wire Line
 	6250 1200 6600 1200
 Connection ~ 6600 1200
+$Comp
+L Device:Fuse F1
+U 1 1 5D3F731C
+P 4000 1200
+F 0 "F1" V 4100 1200 50  0000 C CNN
+F 1 "Fuse 100mA" V 3850 1200 50  0000 C CNN
+F 2 "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open" V 3930 1200 50  0001 C CNN
+F 3 "~" H 4000 1200 50  0001 C CNN
+	1    4000 1200
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J6
+U 1 1 5D404986
+P 3000 1200
+F 0 "J6" H 2918 875 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 2918 966 50  0000 C CNN
+F 2 "TerminalBlock_RND:TerminalBlock_RND_205-00298_1x02_P10.00mm_Horizontal" H 3000 1200 50  0001 C CNN
+F 3 "~" H 3000 1200 50  0001 C CNN
+	1    3000 1200
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:Varistor RV3
+U 1 1 5D406864
+P 4600 1000
+F 0 "RV3" H 4703 1046 50  0000 L CNN
+F 1 "Varistor" H 4703 955 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4530 1000 50  0001 C CNN
+F 3 "~" H 4600 1000 50  0001 C CNN
+	1    4600 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:Fuse F2
+U 1 1 5D409E09
+P 4300 1200
+F 0 "F2" V 4497 1200 50  0000 C CNN
+F 1 "Fuse 72C" V 4406 1200 50  0000 C CNN
+F 2 "Meteo_Footprints:Thermal fuse" V 4230 1200 50  0001 C CNN
+F 3 "~" H 4300 1200 50  0001 C CNN
+	1    4300 1200
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4600 800  4600 850 
+Wire Wire Line
+	4600 1150 4600 1200
+Wire Wire Line
+	4600 1200 5000 1200
+Connection ~ 4600 1200
+Wire Wire Line
+	4450 1200 4600 1200
+Wire Wire Line
+	3200 1200 3450 1200
+$Comp
+L Converter_ACDC:IRM-03-12 PS1
+U 1 1 5D474BC1
+P 5500 1000
+F 0 "PS1" H 5500 1367 50  0000 C CNN
+F 1 "IRM-03-3.3" H 5500 1276 50  0000 C CNN
+F 2 "Converter_ACDC:Converter_ACDC_MeanWell_IRM-03-xx_THT" H 5500 650 50  0001 C CNN
+F 3 "https://www.meanwell.com/Upload/PDF/IRM-03/IRM-03-SPEC.PDF" H 5500 600 50  0001 C CNN
+	1    5500 1000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3200 1100 3450 1100
+Wire Wire Line
+	3450 1100 3450 800 
+Wire Wire Line
+	3450 800  4600 800 
+Wire Wire Line
+	4600 800  5000 800 
+Wire Wire Line
+	5000 800  5000 900 
+Wire Wire Line
+	5000 900  5100 900 
+Connection ~ 4600 800 
+Wire Wire Line
+	5000 1200 5000 1100
+Wire Wire Line
+	5000 1100 5100 1100
+Wire Wire Line
+	5900 900  6000 900 
+Wire Wire Line
+	6000 900  6000 800 
+Wire Wire Line
+	5900 1100 6000 1100
+Wire Wire Line
+	6000 1100 6000 1200
 $EndSCHEMATC

@@ -1,31 +1,6 @@
 EESchema-LIBRARY Version 2.4
 #encoding utf-8
 #
-# Connector_Barrel_Jack_MountingPin
-#
-DEF Connector_Barrel_Jack_MountingPin J 0 20 Y N 1 F N
-F0 "J" 0 210 50 H V C CNN
-F1 "Connector_Barrel_Jack_MountingPin" 50 -250 50 H V L CNN
-F2 "" 50 -40 50 H I C CNN
-F3 "" 50 -40 50 H I C CNN
-$FPLIST
- BarrelJack*
-$ENDFPLIST
-DRAW
-A -130 100 25 901 -901 0 1 10 F -130 125 -130 75
-A -130 100 25 901 -901 0 1 10 N -130 125 -130 75
-T 0 0 -165 15 0 1 1 Mounting Normal 0 C C
-S -200 150 200 -150 0 1 10 f
-S 145 125 -130 75 0 1 10 F
-P 2 0 1 10 200 100 150 100 N
-P 6 0 1 10 -150 -100 -100 -100 -50 -50 0 -100 100 -100 200 -100 N
-P 2 1 1 6 -40 -180 40 -180 N
-X ~ 1 300 100 100 L 50 50 1 1 P
-X ~ 2 300 -100 100 L 50 50 1 1 P
-X MountPin MP 0 -300 120 U 50 50 1 1 P
-ENDDRAW
-ENDDEF
-#
 # Connector_Generic_Conn_01x08
 #
 DEF Connector_Generic_Conn_01x08 J 0 40 Y N 1 F N
@@ -305,6 +280,38 @@ X 1 1 0 0 100 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# Converter_ACDC_IRM-03-12
+#
+DEF Converter_ACDC_IRM-03-12 PS 0 20 Y Y 1 F N
+F0 "PS" 0 250 50 H V C CNN
+F1 "Converter_ACDC_IRM-03-12" 0 -250 50 H V C CNN
+F2 "Converter_ACDC:Converter_ACDC_MeanWell_IRM-03-xx_THT" 0 -350 50 H I C CNN
+F3 "" 0 -400 50 H I C CNN
+ALIAS IRM-03-5 IRM-03-12 IRM-03-15 IRM-03-24
+$FPLIST
+ Converter*ACDC*MeanWell*IRM*03*THT*
+$ENDFPLIST
+DRAW
+A -185 38 28 -1525 -275 0 1 0 N -210 25 -160 25
+A -135 11 29 292 1508 0 1 0 N -110 25 -160 25
+S -300 200 300 -200 0 1 10 f
+P 2 0 1 0 -210 -25 -110 -25 N
+P 2 0 1 0 0 -100 0 -150 N
+P 2 0 1 0 0 0 0 -50 N
+P 2 0 1 0 0 100 0 50 N
+P 2 0 1 0 0 200 0 150 N
+P 2 0 1 0 110 -25 210 -25 N
+P 2 0 1 0 110 25 130 25 N
+P 2 0 1 0 150 25 170 25 N
+P 2 0 1 0 190 25 210 25 N
+X AC/L 1 -400 100 100 R 50 50 1 1 W
+X -Vo 14 400 -100 100 L 50 50 1 1 w
+X +Vo 16 400 100 100 L 50 50 1 1 w
+X AC/N 3 -400 -100 100 R 50 50 1 1 W
+X 5 NC -300 0 100 R 50 50 1 1 N N
+ENDDRAW
+ENDDEF
+#
 # Device_Battery_Cell
 #
 DEF Device_Battery_Cell BT 0 0 N N 1 F N
@@ -407,6 +414,24 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
+# Device_Fuse
+#
+DEF Device_Fuse F 0 0 N Y 1 F N
+F0 "F" 80 0 50 V V C CNN
+F1 "Device_Fuse" -75 0 50 V V C CNN
+F2 "" -70 0 50 V I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ *Fuse*
+$ENDFPLIST
+DRAW
+S -30 -100 30 100 0 1 10 N
+P 2 0 1 0 0 100 0 -100 N
+X ~ 1 0 150 50 D 50 50 1 1 P
+X ~ 2 0 -150 50 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # Device_LED
 #
 DEF Device_LED D 0 40 N N 1 F N
@@ -464,6 +489,26 @@ DRAW
 S -30 70 30 -70 0 1 8 N
 X ~ 1 0 100 30 D 50 50 1 1 P
 X ~ 2 0 -100 30 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
+# Device_Varistor
+#
+DEF Device_Varistor RV 0 0 N Y 1 F N
+F0 "RV" 125 0 50 V V C CNN
+F1 "Device_Varistor" -125 0 50 V V C CNN
+F2 "" -70 0 50 V I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ RV_*
+ Varistor*
+$ENDFPLIST
+DRAW
+T 0 -70 -80 50 0 0 0 U Normal 0 C C
+S -40 -100 40 100 0 1 10 N
+P 3 0 1 0 -75 100 -75 50 75 -50 N
+X ~ 1 0 150 50 D 50 50 1 1 P
+X ~ 2 0 -150 50 U 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
@@ -632,31 +677,6 @@ X INB+ 5 400 -200 100 L 50 50 1 1 I
 X INB- 6 400 -50 100 L 50 50 1 1 C
 X OutB 7 400 100 100 L 50 50 1 1 I
 X 3V3 8 400 250 100 L 50 50 1 1 O
-ENDDRAW
-ENDDEF
-#
-# Main-board-rescue_SCWN03A-03-Meteo_Station
-#
-DEF Main-board-rescue_SCWN03A-03-Meteo_Station U 0 20 Y Y 1 F N
-F0 "U" 0 450 50 H V C CNN
-F1 "Main-board-rescue_SCWN03A-03-Meteo_Station" 0 350 50 H V C CNN
-F2 "Converter_DCDC:Converter_DCDC_Artesyn_ATA_SMD" 0 -350 50 H I C CIN
-F3 "" 0 -450 50 H I C CNN
-$FPLIST
- *Artesyn*ATA*SMD*
-$ENDFPLIST
-DRAW
-S -400 300 400 -300 0 1 10 f
-P 2 0 1 0 0 -200 0 -250 N
-P 2 0 1 0 0 -100 0 -150 N
-P 2 0 1 0 0 0 0 -50 N
-P 2 0 1 0 0 100 0 50 N
-P 2 0 1 0 0 200 0 150 N
-P 2 0 1 0 0 300 0 250 N
-X +VOUT 14 500 200 100 L 50 50 1 1 w
-X -VOUT 16 500 -200 100 L 50 50 1 1 w
-X -VIN 2 -500 -200 100 R 50 50 1 1 W
-X +VIN 23 -500 200 100 R 50 50 1 1 W
 ENDDRAW
 ENDDEF
 #
