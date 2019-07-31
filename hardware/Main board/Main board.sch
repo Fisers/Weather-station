@@ -295,7 +295,7 @@ Text GLabel 7550 2250 2    50   Input ~ 0
 dirOUT
 Text GLabel 5150 1950 2    50   Input ~ 0
 speedOUT
-Text GLabel 7550 2350 2    50   Input ~ 0
+Text GLabel 7550 5550 2    50   Input ~ 0
 speedOUT
 $Comp
 L Connector:Screw_Terminal_01x02 J2
@@ -725,25 +725,12 @@ F 3 "~" H 7700 5450 50  0001 C CNN
 	1    7700 5450
 	0    1    1    0   
 $EndComp
-$Comp
-L Device:R_Small R25
-U 1 1 5D4A70F7
-P 7700 5550
-F 0 "R25" V 7650 5600 31  0000 C CNN
-F 1 "55" V 7700 5550 39  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric" H 7700 5550 50  0001 C CNN
-F 3 "~" H 7700 5550 50  0001 C CNN
-	1    7700 5550
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	7550 5250 7600 5250
 Wire Wire Line
 	7550 5350 7600 5350
 Wire Wire Line
 	7550 5450 7600 5450
-Wire Wire Line
-	7550 5550 7600 5550
 Wire Wire Line
 	7800 5150 10400 5150
 Wire Wire Line
@@ -752,8 +739,6 @@ Wire Wire Line
 	7800 5350 10100 5350
 Wire Wire Line
 	7800 5450 9950 5450
-Wire Wire Line
-	7800 5550 9800 5550
 $Comp
 L Device:D_Zener D1
 U 1 1 5D4D27E8
@@ -1288,8 +1273,6 @@ Wire Wire Line
 	10100 5850 10600 5850
 Wire Wire Line
 	9950 6100 10600 6100
-Wire Wire Line
-	9800 6350 10600 6350
 $Comp
 L power:GND #PWR043
 U 1 1 5D372A42
@@ -2162,8 +2145,6 @@ Wire Wire Line
 Wire Wire Line
 	7550 5150 7600 5150
 Wire Wire Line
-	9800 5550 9800 6350
-Wire Wire Line
 	9950 5450 9950 6100
 Wire Wire Line
 	10100 5350 10100 5850
@@ -2518,7 +2499,7 @@ U 1 1 5D406864
 P 4600 1000
 F 0 "RV3" H 4703 1046 50  0000 L CNN
 F 1 "Varistor" H 4703 955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4530 1000 50  0001 C CNN
+F 2 "Meteo_Footprints:Varistor_SMD" V 4530 1000 50  0001 C CNN
 F 3 "~" H 4600 1000 50  0001 C CNN
 	1    4600 1000
 	1    0    0    -1  
@@ -2634,4 +2615,23 @@ F 3 "~" H 7400 1000 50  0001 C CNN
 	1    7400 1000
 	1    0    0    -1  
 $EndComp
+Text GLabel 7550 2350 2    50   Input ~ 0
+PA1
+Text GLabel 10200 6350 0    50   Input ~ 0
+PA1
+$Comp
+L Device:R_Small R25
+U 1 1 5D423F75
+P 10400 6350
+F 0 "R25" V 10350 6400 31  0000 C CNN
+F 1 "55" V 10400 6350 39  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 10400 6350 50  0001 C CNN
+F 3 "~" H 10400 6350 50  0001 C CNN
+	1    10400 6350
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	10600 6350 10500 6350
+Wire Wire Line
+	10300 6350 10200 6350
 $EndSCHEMATC
