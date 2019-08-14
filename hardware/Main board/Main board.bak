@@ -72,7 +72,7 @@ F 3 "http://katalog.we-online.de/em/datasheet/693072010801.pdf" H 10350 2700 50 
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9450 2500 8100 2500
+	9450 2500 8450 2500
 Wire Wire Line
 	8100 2500 8100 3250
 Wire Wire Line
@@ -98,9 +98,9 @@ Text GLabel 7550 3750 2    50   Input ~ 0
 MISO
 Text GLabel 7550 3650 2    50   Input ~ 0
 MOSI
-Text GLabel 9450 2600 0    50   Input ~ 0
+Text GLabel 8550 2600 1    50   Input ~ 0
 MOSI
-Text GLabel 9450 3000 0    50   Input ~ 0
+Text GLabel 8550 3000 0    50   Input ~ 0
 MISO
 Text GLabel 9450 2800 0    50   Input ~ 0
 SCK
@@ -594,11 +594,11 @@ F 3 "http://www.ftdichip.com/Products/ICs/FT232RL.htm" H 3800 4650 50  0001 C CN
 $EndComp
 Text GLabel 7550 5050 2    50   Input ~ 0
 TXD
-Text GLabel 4600 3950 2    50   Input ~ 0
+Text GLabel 4600 4050 2    50   Input ~ 0
 TXD
 Text GLabel 7550 4950 2    50   Input ~ 0
 RXD
-Text GLabel 4600 4050 2    50   Input ~ 0
+Text GLabel 4600 3950 2    50   Input ~ 0
 RXD
 Wire Wire Line
 	3900 3450 3900 3650
@@ -853,9 +853,9 @@ F 3 "~" H 10500 4700 50  0001 C CNN
 	1    10500 4700
 	1    0    0    -1  
 $EndComp
-Text GLabel 10800 4700 2    50   Input ~ 0
+Text GLabel 10800 4600 2    50   Input ~ 0
 MOSI
-Text GLabel 10300 4700 0    50   Input ~ 0
+Text GLabel 10300 4800 0    50   Input ~ 0
 SCK
 Text GLabel 10300 4600 0    50   Input ~ 0
 MISO
@@ -877,7 +877,7 @@ Wire Wire Line
 	6200 2850 6350 2850
 Text GLabel 6350 2250 3    50   Input ~ 0
 RST
-Text GLabel 10300 4800 0    50   Input ~ 0
+Text GLabel 10800 4700 2    50   Input ~ 0
 RST
 $Comp
 L Device:C_Small C15
@@ -911,8 +911,6 @@ F 3 "~" H 9100 2800 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9100 2900 9450 2900
-Wire Wire Line
-	9100 2700 9450 2700
 $Comp
 L Device:C_Small C16
 U 1 1 5D56062F
@@ -1120,7 +1118,6 @@ SCK
 NoConn ~ 3000 4650
 Text GLabel 4600 4350 2    50   Input ~ 0
 RST
-NoConn ~ 10800 4600
 NoConn ~ 9450 3100
 NoConn ~ 9450 2400
 NoConn ~ 9400 4650
@@ -1376,7 +1373,6 @@ F 3 "" H 9100 2700 50  0001 C CNN
 	1    9100 2700
 	1    0    0    -1  
 $EndComp
-Connection ~ 9100 2700
 $Comp
 L power:VCC #PWR033
 U 1 1 5D37B12B
@@ -1997,7 +1993,7 @@ Wire Wire Line
 	2550 6550 2300 6550
 Connection ~ 2300 6550
 $Comp
-L Sensor_Magnetic:DRV5033FAQDBZ U8
+L Meteo_Station:HallEff_Sensor U8
 U 1 1 5D3995E6
 P 4900 6100
 F 0 "U8" H 4671 6146 50  0000 R CNN
@@ -2394,15 +2390,13 @@ F 3 "" H 11150 3300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9100 2700 8850 2700
-Wire Wire Line
 	8850 2900 9100 2900
 $Comp
 L Device:CP_Small C25
 U 1 1 5D3D1832
 P 8850 2800
-F 0 "C25" H 8762 2754 50  0000 R CNN
-F 1 "4.7uF" H 8762 2845 50  0000 R CNN
+F 0 "C25" H 8800 2750 31  0000 R CNN
+F 1 "4.7uF" H 8850 2900 31  0000 R CNN
 F 2 "Capacitor_SMD:CP_Elec_4x5.4" H 8850 2800 50  0001 C CNN
 F 3 "~" H 8850 2800 50  0001 C CNN
 	1    8850 2800
@@ -2499,7 +2493,7 @@ U 1 1 5D406864
 P 4600 1000
 F 0 "RV3" H 4703 1046 50  0000 L CNN
 F 1 "Varistor" H 4703 955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 4530 1000 50  0001 C CNN
+F 2 "Meteo_Footprints:Varistor_SMD" V 4530 1000 50  0001 C CNN
 F 3 "~" H 4600 1000 50  0001 C CNN
 	1    4600 1000
 	1    0    0    -1  
@@ -2620,10 +2614,10 @@ PA1
 Text GLabel 10200 6350 0    50   Input ~ 0
 PA1
 $Comp
-L Device:R_Small R?
+L Device:R_Small R25
 U 1 1 5D423F75
 P 10400 6350
-F 0 "R?" V 10350 6400 31  0000 C CNN
+F 0 "R25" V 10350 6400 31  0000 C CNN
 F 1 "55" V 10400 6350 39  0000 C CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" H 10400 6350 50  0001 C CNN
 F 3 "~" H 10400 6350 50  0001 C CNN
@@ -2634,4 +2628,85 @@ Wire Wire Line
 	10600 6350 10500 6350
 Wire Wire Line
 	10300 6350 10200 6350
+$Comp
+L power:VCC #PWR0118
+U 1 1 5D5340FC
+P 10300 4700
+F 0 "#PWR0118" H 10300 4550 50  0001 C CNN
+F 1 "VCC" V 10300 4900 50  0000 C CNN
+F 2 "" H 10300 4700 50  0001 C CNN
+F 3 "" H 10300 4700 50  0001 C CNN
+	1    10300 4700
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_Small R?
+U 1 1 5D5A42C2
+P 8650 2700
+F 0 "R?" V 8700 2650 50  0000 L CNN
+F 1 "10k" V 8650 2650 31  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 8650 2700 50  0001 C CNN
+F 3 "~" H 8650 2700 50  0001 C CNN
+	1    8650 2700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8850 2700 9100 2700
+Connection ~ 9100 2700
+Wire Wire Line
+	9100 2700 9450 2700
+$Comp
+L power:VCC #PWR?
+U 1 1 5D64110B
+P 8400 2800
+F 0 "#PWR?" H 8400 2650 50  0001 C CNN
+F 1 "VCC" H 8417 2973 50  0000 C CNN
+F 2 "" H 8400 2800 50  0001 C CNN
+F 3 "" H 8400 2800 50  0001 C CNN
+	1    8400 2800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9450 3000 8650 3000
+$Comp
+L Device:R_Small R?
+U 1 1 5D65FD42
+P 8650 2900
+F 0 "R?" V 8700 2850 50  0000 L CNN
+F 1 "10k" V 8650 2850 31  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 8650 2900 50  0001 C CNN
+F 3 "~" H 8650 2900 50  0001 C CNN
+	1    8650 2900
+	-1   0    0    1   
+$EndComp
+Connection ~ 8650 3000
+Connection ~ 8650 2600
+Wire Wire Line
+	8650 2600 9450 2600
+Wire Wire Line
+	8550 2600 8650 2600
+Wire Wire Line
+	8550 3000 8650 3000
+Wire Wire Line
+	8400 2800 8450 2800
+Connection ~ 8650 2800
+$Comp
+L Device:R_Small R?
+U 1 1 5D69A96F
+P 8450 2700
+F 0 "R?" V 8500 2650 50  0000 L CNN
+F 1 "10k" V 8450 2650 31  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric" H 8450 2700 50  0001 C CNN
+F 3 "~" H 8450 2700 50  0001 C CNN
+	1    8450 2700
+	-1   0    0    1   
+$EndComp
+Connection ~ 8450 2800
+Wire Wire Line
+	8450 2800 8650 2800
+Wire Wire Line
+	8450 2600 8450 2500
+Connection ~ 8450 2500
+Wire Wire Line
+	8450 2500 8100 2500
 $EndSCHEMATC
