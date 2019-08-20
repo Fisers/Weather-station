@@ -36,9 +36,9 @@ static int16_t gNextPacketPtr;
 #define ENC28J60_CONTROL_DDR    DDRB
 
 #define ENC28J60_CONTROL_CS PORTB2
-#define ENC28J60_CONTROL_SO PORTB4
-#define ENC28J60_CONTROL_SI PORTB3
-#define ENC28J60_CONTROL_SCK PORTB5
+#define ENC28J60_CONTROL_SO PORTB6
+#define ENC28J60_CONTROL_SI PORTB5
+#define ENC28J60_CONTROL_SCK PORTB7
 
 // set CS to 0 = active
 #define CSACTIVE ENC28J60_CONTROL_PORT&=~(1<<ENC28J60_CONTROL_CS)
@@ -183,16 +183,16 @@ void enc28j60Init(uint8_t* macaddr)
 	ENC28J60_CONTROL_DDR |= 1<<ENC28J60_CONTROL_CS;
 	CSPASSIVE; // ss=0
         //	
-	ENC28J60_CONTROL_DDR  |= 1<<ENC28J60_CONTROL_SI | 1<<ENC28J60_CONTROL_SCK; // mosi, sck output
-	ENC28J60_CONTROL_DDR&=~(1<<ENC28J60_CONTROL_SO); // MISO is input
-        //
-        ENC28J60_CONTROL_PORT&=~(1<<ENC28J60_CONTROL_SI); // MOSI low
-        ENC28J60_CONTROL_PORT&=~(1<<ENC28J60_CONTROL_SCK); // SCK low
-	//
-	// initialize SPI interface
-	// master mode and Fosc/2 clock:
-        SPCR = (1<<SPE)|(1<<MSTR);
-        SPSR |= (1<<SPI2X);
+// 	ENC28J60_CONTROL_DDR  |= 1<<ENC28J60_CONTROL_SI | 1<<ENC28J60_CONTROL_SCK; // mosi, sck output
+// 	ENC28J60_CONTROL_DDR&=~(1<<ENC28J60_CONTROL_SO); // MISO is input
+//         //
+//         ENC28J60_CONTROL_PORT&=~(1<<ENC28J60_CONTROL_SI); // MOSI low
+//         ENC28J60_CONTROL_PORT&=~(1<<ENC28J60_CONTROL_SCK); // SCK low
+// 	//
+// 	// initialize SPI interface
+// 	// master mode and Fosc/2 clock:
+//         SPCR = (1<<SPE)|(1<<MSTR);
+//         SPSR |= (1<<SPI2X);
 	// perform system reset
 	enc28j60WriteOp(ENC28J60_SOFT_RESET, 0, ENC28J60_SOFT_RESET);
         _delay_loop_2(0); // 20ms

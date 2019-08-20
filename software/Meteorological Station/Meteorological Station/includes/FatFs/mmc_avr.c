@@ -20,13 +20,10 @@
 /* Port controls  (Platform dependent) */
 #define CS_LOW()	PORTB &= ~(1<<SD_CS)		/* CS=low */
 #define	CS_HIGH()	PORTB |= (1<<SD_CS)			/* CS=high */
-#define MMC_CD		(!(PINB & 0x10))	/* Card detected.   yes:true, no:false, default:true */
-#define MMC_WP		(PINB & 0x20)		/* Write protected. yes:true, no:false, default:false */
+#define MMC_CD		(!(PINB & 0x30))	/* Card detected.   yes:true, no:false, default:true */
+#define MMC_WP		(PINB & 0x40)		/* Write protected. yes:true, no:false, default:false */
 #define	FCLK_SLOW()	SPCR = 0x52		/* Set slow clock (F_CPU / 64) */
 #define	FCLK_FAST()	SPCR = 0x50		/* Set fast clock (F_CPU / 2) */
-#define SCK PINB5
-#define MISO PINB4
-#define MOSI PINB3
 
 
 /*--------------------------------------------------------------------------

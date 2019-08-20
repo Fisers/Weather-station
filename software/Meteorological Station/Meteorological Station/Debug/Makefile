@@ -39,7 +39,10 @@ SUBDIRS :=  \
 ../includes/I2C/ \
 ../includes/HIH8120 \
 ../includes/Ethernet \
+../includes/SpaceInvaders \
+../includes/NokiaLCD \
 ../includes/RTC/ \
+../includes/SpaceInvaders/Graphics \
 ../includes/UART \
 ../includes/SPI \
 ../includes/WindSpeed/
@@ -57,6 +60,7 @@ C_SRCS +=  \
 ../includes/FatFs/mmc_avr.c \
 ../includes/HIH8120/hih8120.c \
 ../includes/I2C/twimaster.c \
+../includes/NokiaLCD/nokia.c \
 ../includes/RTC/rtc.c \
 ../includes/SPI/SPI.c \
 ../includes/UART/uart.c \
@@ -81,6 +85,7 @@ includes/FatFs/ff.o \
 includes/FatFs/mmc_avr.o \
 includes/HIH8120/hih8120.o \
 includes/I2C/twimaster.o \
+includes/NokiaLCD/nokia.o \
 includes/RTC/rtc.o \
 includes/SPI/SPI.o \
 includes/UART/uart.o \
@@ -98,6 +103,7 @@ includes/FatFs/ff.o \
 includes/FatFs/mmc_avr.o \
 includes/HIH8120/hih8120.o \
 includes/I2C/twimaster.o \
+includes/NokiaLCD/nokia.o \
 includes/RTC/rtc.o \
 includes/SPI/SPI.o \
 includes/UART/uart.o \
@@ -115,6 +121,7 @@ includes/FatFs/ff.d \
 includes/FatFs/mmc_avr.d \
 includes/HIH8120/hih8120.d \
 includes/I2C/twimaster.d \
+includes/NokiaLCD/nokia.d \
 includes/RTC/rtc.d \
 includes/SPI/SPI.d \
 includes/UART/uart.d \
@@ -132,6 +139,7 @@ includes/FatFs/ff.d \
 includes/FatFs/mmc_avr.d \
 includes/HIH8120/hih8120.d \
 includes/I2C/twimaster.d \
+includes/NokiaLCD/nokia.d \
 includes/RTC/rtc.d \
 includes/SPI/SPI.d \
 includes/UART/uart.d \
@@ -216,6 +224,13 @@ includes/HIH8120/hih8120.o: ../includes/HIH8120/hih8120.c
 	
 
 includes/I2C/twimaster.o: ../includes/I2C/twimaster.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+includes/NokiaLCD/nokia.o: ../includes/NokiaLCD/nokia.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -240,6 +240,18 @@
     <Compile Include="includes\I2C\twimaster.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="includes\NokiaLCD\Apple_Logo.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\NokiaLCD\Font.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\NokiaLCD\nokia.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\NokiaLCD\nokia.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="includes\RTC\rtc.c">
       <SubType>compile</SubType>
     </Compile>
@@ -247,6 +259,21 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="includes\RTC\stdutils.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\SpaceInvaders\Graphics\bullet.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\SpaceInvaders\Graphics\player.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\SpaceInvaders\Level.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\SpaceInvaders\Graphics\invader.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="includes\SpaceInvaders\SplashScreen.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="includes\SPI\SPI.c">
@@ -284,7 +311,10 @@
     <Folder Include="includes\I2C\" />
     <Folder Include="includes\HIH8120" />
     <Folder Include="includes\Ethernet" />
+    <Folder Include="includes\SpaceInvaders" />
+    <Folder Include="includes\NokiaLCD" />
     <Folder Include="includes\RTC\" />
+    <Folder Include="includes\SpaceInvaders\Graphics" />
     <Folder Include="includes\UART" />
     <Folder Include="includes\SPI" />
     <Folder Include="includes\WindSpeed\" />

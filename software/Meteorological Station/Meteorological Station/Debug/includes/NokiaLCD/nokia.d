@@ -1,6 +1,5 @@
-main.d main.o: .././main.c \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+includes/NokiaLCD/nokia.d includes/NokiaLCD/nokia.o: \
+ ../includes/NokiaLCD/nokia.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -12,33 +11,19 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h \
- .././main.h .././includes/SPI/SPI.h .././includes/I2C/i2cmaster.h \
- .././includes/BMP280_SPI/BMP280_SPI.h \
- .././includes/WindSpeed/windSpeed.h .././includes/HIH8120/hih8120.h \
- .././includes/Ethernet/test_web_client.h .././includes/RTC/rtc.h \
- .././includes/RTC/stdutils.h .././includes/FatFs/ff.h \
- .././includes/FatFs/integer.h .././includes/FatFs/ffconf.h \
- .././Options.h .././includes/UART/uart.h .././includes/NokiaLCD/nokia.h \
- .././includes/NokiaLCD/Apple_Logo.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h \
- .././includes/SpaceInvaders/Graphics/invader.h \
- .././includes/SpaceInvaders/Level.h \
- .././includes/SpaceInvaders/Graphics/player.h \
- .././includes/SpaceInvaders/Graphics/bullet.h
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+ ../includes/NokiaLCD/../SPI/SPI.h ../includes/NokiaLCD/Font.h \
+ ../includes/NokiaLCD/../../Options.h \
+ ../includes/NokiaLCD/../../includes/RTC/rtc.h \
+ ../includes/NokiaLCD/../../includes/RTC/stdutils.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
+ ../includes/NokiaLCD/../SpaceInvaders/SplashScreen.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -62,12 +47,6 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
-
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
@@ -78,48 +57,20 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h:
+../includes/NokiaLCD/../SPI/SPI.h:
 
-.././main.h:
+../includes/NokiaLCD/Font.h:
 
-.././includes/SPI/SPI.h:
+../includes/NokiaLCD/../../Options.h:
 
-.././includes/I2C/i2cmaster.h:
+../includes/NokiaLCD/../../includes/RTC/rtc.h:
 
-.././includes/BMP280_SPI/BMP280_SPI.h:
+../includes/NokiaLCD/../../includes/RTC/stdutils.h:
 
-.././includes/WindSpeed/windSpeed.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
 
-.././includes/HIH8120/hih8120.h:
-
-.././includes/Ethernet/test_web_client.h:
-
-.././includes/RTC/rtc.h:
-
-.././includes/RTC/stdutils.h:
-
-.././includes/FatFs/ff.h:
-
-.././includes/FatFs/integer.h:
-
-.././includes/FatFs/ffconf.h:
-
-.././Options.h:
-
-.././includes/UART/uart.h:
-
-.././includes/NokiaLCD/nokia.h:
-
-.././includes/NokiaLCD/Apple_Logo.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h:
-
-.././includes/SpaceInvaders/Graphics/invader.h:
-
-.././includes/SpaceInvaders/Level.h:
-
-.././includes/SpaceInvaders/Graphics/player.h:
-
-.././includes/SpaceInvaders/Graphics/bullet.h:
+../includes/NokiaLCD/../SpaceInvaders/SplashScreen.h:

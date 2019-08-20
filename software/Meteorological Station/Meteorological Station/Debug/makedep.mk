@@ -22,6 +22,8 @@ includes\HIH8120\hih8120.c
 
 includes\I2C\twimaster.c
 
+includes\NokiaLCD\nokia.c
+
 includes\RTC\rtc.c
 
 includes\SPI\SPI.c

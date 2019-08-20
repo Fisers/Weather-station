@@ -62,7 +62,7 @@ static float bmp280_compensate_pressure(int32_t adc_P)
 }
 
 void bmp280_init() {
-	DDRD |= (1 << BMP_CS);
+	DDRB |= (1 << BMP_CS);
 	PORT_CS &= ~(1<<BMP_CS); // Power On the module
 	spi_rwSPI(0b01110100);
 	spi_rwSPI(0xFF);

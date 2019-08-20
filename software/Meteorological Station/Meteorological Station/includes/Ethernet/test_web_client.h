@@ -13,6 +13,7 @@ extern uint8_t sendingPacket;
 extern volatile uint8_t sec;
 void Ether_init();
 void Ether_SendPacket(char* text);
+void init_cnt2(void);
 
 
 

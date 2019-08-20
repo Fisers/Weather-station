@@ -9,20 +9,24 @@
 #include "SPI.h"
 #include "../../Options.h"
 
-#define SCK PINB5
-#define MISO PINB4
-#define MOSI PINB3
+#define SCK PINB7
+#define MISO PINB6
+#define MOSI PINB5
 
 
 // SPI
 // Initialize SPI Master Device (with SPI interrupt)
 void spi_init_master (void)
 {
-	DDRB |= (1<<MOSI)|(1<<SCK);
-	DDRB &= ~(1<<MISO);
-	SPCR |= (1<<SPE)|(1<<MSTR)|(1<<SPR1)|(1<<SPR0);
-	PORTB |= (1<<MISO);
-	PORTB &= ~(1<<MISO);
+// 	DDRB |= (1<<MOSI)|(1<<SCK);
+// 	DDRB &= ~(1<<MISO);
+// 	SPCR |= (1<<SPE)|(1<<MSTR)|(1<<SPR1)|(1<<SPR0);
+// 	PORTB |= (1<<MISO);
+// 	PORTB &= ~(1<<MISO);
+	/*SET MOSI, SCK AND CS AS OUTPUT, REST OF REGISTER INPUT*/
+	DDRB = (1<<DDB5) | (1<<DDB7) | (1<<DDB4);
+	/*ENABLE SPI, MASTER, SET CLOCK RATE FCK/128 */
+	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR1)|(1<<SPR0);
 }
 
 /********************************************

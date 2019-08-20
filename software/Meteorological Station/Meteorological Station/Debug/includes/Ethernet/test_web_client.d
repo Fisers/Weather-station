@@ -29,7 +29,8 @@ includes/Ethernet/test_web_client.d includes/Ethernet/test_web_client.o: \
  ../includes/Ethernet/../../Options.h \
  ../includes/Ethernet/../../includes/RTC/rtc.h \
  ../includes/Ethernet/../../includes/RTC/stdutils.h \
- ../includes/Ethernet/../RTC/rtc.h
+ ../includes/Ethernet/../RTC/rtc.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -96,3 +97,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../includes/Ethernet/../../includes/RTC/stdutils.h:
 
 ../includes/Ethernet/../RTC/rtc.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h:

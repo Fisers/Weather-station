@@ -17,7 +17,11 @@ includes/HIH8120/hih8120.d includes/HIH8120/hih8120.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
+ ../includes/HIH8120/../../Options.h \
+ ../includes/HIH8120/../../includes/RTC/rtc.h \
+ ../includes/HIH8120/../../includes/RTC/stdutils.h \
+ ../includes/HIH8120/../SPI/SPI.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -54,3 +58,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
+
+../includes/HIH8120/../../Options.h:
+
+../includes/HIH8120/../../includes/RTC/rtc.h:
+
+../includes/HIH8120/../../includes/RTC/stdutils.h:
+
+../includes/HIH8120/../SPI/SPI.h:

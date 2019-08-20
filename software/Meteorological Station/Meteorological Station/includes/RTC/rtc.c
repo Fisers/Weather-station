@@ -106,6 +106,14 @@ void RTC_SetDateTime(rtc_t *rtc)
 	//i2c_write(0x80);
     i2c_write(C_Ds1307WriteMode_U8);      // connect to DS1307 by sending its ID on I2c Bus
     i2c_write(C_Ds1307SecondRegAddress_U8); // Request sec RAM address at 00H
+	
+// 	i2c_write(rtc->sec);                    // Write sec from RAM address 00H
+// 	i2c_write(rtc->min);                    // Write min from RAM address 01H
+// 	i2c_write(rtc->hour);                    // Write hour from RAM address 02H
+// 	i2c_write(rtc->weekDay);                // Write weekDay on RAM address 03H
+// 	i2c_write(rtc->date);                    // Write date on RAM address 04H
+// 	i2c_write(rtc->month);                    // Write month on RAM address 05H
+// 	i2c_write(rtc->year);
 
     i2c_write(dec2bcd(rtc->sec));                    // Write sec from RAM address 00H
     i2c_write(dec2bcd(rtc->min));                    // Write min from RAM address 01H
