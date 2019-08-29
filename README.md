@@ -13,7 +13,7 @@
 - SD card data logging in CSV format
 - ~~UART using serial~~
 ## Power supply
-- 220V or 230V AC
+- 100V - 240V AC
 - 3.3V DC
 ## Extras
 - Real Time Clock
