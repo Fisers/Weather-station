@@ -11,7 +11,7 @@
   - TCP packets to the server
 - Nokia 5110 display
 - SD card data logging in CSV format
-- ~~UART using serial~~
+- ~~USB to UART (For debugging and programming with bootloader)~~ See issues https://github.com/Fisers/meteostacija/issues/1
 ## Power supply
 - 100V - 240V AC
 - 3.3V DC
