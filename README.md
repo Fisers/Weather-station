@@ -21,5 +21,5 @@
 - Space Invaders minigame
 - No easter eggs
 ## Free PINs for future upgrades
-- PB0 | PA3 | PA4 | PA5 | PA6 | PA7
+- PB0 (Timer 0) | PA3 (ADC) | PA4 (ADC) | PA5 (ADC) | PA6 (ADC) | PA7 (ADC)
 - Motherboard also has free connections to 3.3v and GND aswell as SPI.
