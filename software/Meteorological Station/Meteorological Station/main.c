@@ -176,6 +176,10 @@ ISR(PCINT2_vect)
 		
 			printPage(page);
 		}
+		OCR2A = brightness;
+		TCCR2A |= (1 << COM2A1);
+		TCCR2A |= (1 << WGM21) | (1 << WGM20);
+		TCCR2B |= (1 << CS21);
 	}
 }
 
@@ -304,7 +308,7 @@ int main(void)
 	PORTD |= (1 << PIND3);
 	while(1) {	
 		float wind_speed;
-		magnetVal = adc_read(2);
+		
 
 		if(sendingPacket == 1)
 		{
@@ -332,7 +336,9 @@ int main(void)
 		wind_speed = wind_measureFrequency();
 		if(wind_speed < 0 || wind_speed > 1000)
 			wind_speed = 0;
-			
+		
+		magnetVal = adc_read(2);
+
 		if(magnetVal < halleff)
 		{
 			OCR2A = brightness;
