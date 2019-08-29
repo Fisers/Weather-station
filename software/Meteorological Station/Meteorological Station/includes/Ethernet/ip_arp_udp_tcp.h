@@ -152,7 +152,7 @@ extern void client_browse_url(const char *urlbuf_p, char *urlbuf_varpart, const 
 // when the post operation was really done (e.g when callback was executed).
 // postval must be urlencoded.
 extern void client_http_post(const char *urlbuf_p, char *urlbuf_varpart,const char *hoststr, const char *additionalheaderline_p,char *postval,void (*callback)(uint16_t,uint16_t,uint16_t),uint8_t *dstip,uint8_t *dstmac);
-extern void client_tcpSend(char *urlbuf_varpart,void (*callback)(uint16_t,uint16_t,uint16_t),uint8_t *dstip,uint8_t *dstmac, uint8_t *dstport);
+extern void client_tcpSend(char *urlbuf_varpart,void (*callback)(uint16_t,uint16_t,uint16_t),uint8_t *dstip,uint8_t *dstmac, uint16_t dstport);
 // The callback is a reference to a function which must look like this:
 // void browserresult_callback(uint16_t webstatuscode,uint16_t datapos,uint16_t len)
 // webstatuscode is zero if there was no proper reply from the server (garbage message total communication failure, this is rare).

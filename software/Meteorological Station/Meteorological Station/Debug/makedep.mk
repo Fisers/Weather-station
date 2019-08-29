@@ -26,6 +26,8 @@ includes\NokiaLCD\nokia.c
 
 includes\RTC\rtc.c
 
+includes\SpaceInvaders\Space.c
+
 includes\SPI\SPI.c
 
 includes\UART\uart.c

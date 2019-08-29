@@ -1286,7 +1286,7 @@ void client_http_post(const char *urlbuf_p, char *urlbuf_varpart,const char *hos
 }
 #define F_CPU 16000000UL
 #include <util/delay.h>
-void client_tcpSend(char *urlbuf_varpart,void (*callback)(uint16_t,uint16_t,uint16_t),uint8_t *dstip,uint8_t *dstmac, uint8_t *dstport)
+void client_tcpSend(char *urlbuf_varpart,void (*callback)(uint16_t,uint16_t,uint16_t),uint8_t *dstip,uint8_t *dstmac, uint16_t dstport)
 {
 	if (!enc28j60linkup())return;
 	client_urlbuf_var=urlbuf_varpart;

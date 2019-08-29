@@ -22,8 +22,7 @@ includes/NokiaLCD/nokia.d includes/NokiaLCD/nokia.o: \
  ../includes/NokiaLCD/../../Options.h \
  ../includes/NokiaLCD/../../includes/RTC/rtc.h \
  ../includes/NokiaLCD/../../includes/RTC/stdutils.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
- ../includes/NokiaLCD/../SpaceInvaders/SplashScreen.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -72,5 +71,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../includes/NokiaLCD/../../includes/RTC/stdutils.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
-
-../includes/NokiaLCD/../SpaceInvaders/SplashScreen.h:

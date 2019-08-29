@@ -315,17 +315,28 @@ uint8_t enc28j60linkup(void)
 
 void enc28j60PacketSend(uint16_t len, uint8_t* packet)
 {
-        // Check no transmit in progress
-        while (enc28j60ReadOp(ENC28J60_READ_CTRL_REG, ECON1) & ECON1_TXRTS);
-        // 
-        // Reset the transmit logic problem. Unblock stall in the transmit logic.
-        // See Rev. B4 Silicon Errata point 12.
-        if( (enc28j60Read(EIR) & EIR_TXERIF) ) {
-                enc28j60WriteOp(ENC28J60_BIT_FIELD_SET, ECON1, ECON1_TXRST);
-                enc28j60WriteOp(ENC28J60_BIT_FIELD_CLR, ECON1, ECON1_TXRST);
-                enc28j60WriteOp(ENC28J60_BIT_FIELD_CLR, EIR, EIR_TXERIF); 
-                _delay_loop_2(30000); // 10ms
-        }
+	// Check no transmit in progress
+	//  while (readOp(ENC28J60_READ_CTRL_REG, ECON1) & ECON1_TXRTS) // Might lead to deadlocks and not explicitly advised by Microchip Errata point 12 so commented out this, MagKas 2014-10-25
+	//  {
+	// Reset the transmit logic problem. See Rev. B4 Silicon Errata point 12.
+	if( (enc28j60Read(EIR) & EIR_TXERIF) )
+	{
+		enc28j60WriteOp(ENC28J60_BIT_FIELD_SET, ECON1, ECON1_TXRST);
+		enc28j60WriteOp(ENC28J60_BIT_FIELD_CLR, ECON1, ECON1_TXRST);
+		enc28j60WriteOp(ENC28J60_BIT_FIELD_CLR, EIR, EIR_TXERIF); // Might be overkill but advised by Microchip Errata point 12, //MagKas 2014-10-25
+	}
+	//   }
+//         // Check no transmit in progress
+//         while (enc28j60ReadOp(ENC28J60_READ_CTRL_REG, ECON1) & ECON1_TXRTS);
+//         // 
+//         // Reset the transmit logic problem. Unblock stall in the transmit logic.
+//         // See Rev. B4 Silicon Errata point 12.
+//         if( (enc28j60Read(EIR) & EIR_TXERIF) ) {
+//                 enc28j60WriteOp(ENC28J60_BIT_FIELD_SET, ECON1, ECON1_TXRST);
+//                 enc28j60WriteOp(ENC28J60_BIT_FIELD_CLR, ECON1, ECON1_TXRST);
+//                 enc28j60WriteOp(ENC28J60_BIT_FIELD_CLR, EIR, EIR_TXERIF); 
+//                 _delay_loop_2(30000); // 10ms
+//         }
 	// Set the write pointer to start of transmit buffer area
 	enc28j60Write(EWRPTL, TXSTART_INIT&0xFF);
 	enc28j60Write(EWRPTH, TXSTART_INIT>>8);

@@ -1,4 +1,8 @@
-main.d main.o: .././main.c \
+includes/SpaceInvaders/Space.d includes/SpaceInvaders/Space.o: \
+ ../includes/SpaceInvaders/Space.c \
+ ../includes/SpaceInvaders/../../Options.h \
+ ../includes/SpaceInvaders/../../includes/RTC/rtc.h \
+ ../includes/SpaceInvaders/../../includes/RTC/stdutils.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
@@ -22,15 +26,20 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h \
- .././main.h .././includes/SPI/SPI.h .././includes/I2C/i2cmaster.h \
- .././includes/BMP280_SPI/BMP280_SPI.h \
- .././includes/WindSpeed/windSpeed.h .././includes/HIH8120/hih8120.h \
- .././includes/Ethernet/test_web_client.h .././includes/RTC/rtc.h \
- .././includes/RTC/stdutils.h .././includes/FatFs/ff.h \
- .././includes/FatFs/integer.h .././includes/FatFs/ffconf.h \
- .././Options.h .././includes/UART/uart.h .././includes/NokiaLCD/nokia.h \
+ ../includes/SpaceInvaders/Graphics/invader.h \
+ ../includes/SpaceInvaders/Level.h \
+ ../includes/SpaceInvaders/Graphics/player.h \
+ ../includes/SpaceInvaders/Graphics/bullet.h \
+ ../includes/SpaceInvaders/../Ethernet/test_web_client.h \
+ ../includes/SpaceInvaders/../NokiaLCD/nokia.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h \
- .././includes/SpaceInvaders/Space.h
+ ../includes/SpaceInvaders/SplashScreen.h
+
+../includes/SpaceInvaders/../../Options.h:
+
+../includes/SpaceInvaders/../../includes/RTC/rtc.h:
+
+../includes/SpaceInvaders/../../includes/RTC/stdutils.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
@@ -78,36 +87,18 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h:
 
-.././main.h:
+../includes/SpaceInvaders/Graphics/invader.h:
 
-.././includes/SPI/SPI.h:
+../includes/SpaceInvaders/Level.h:
 
-.././includes/I2C/i2cmaster.h:
+../includes/SpaceInvaders/Graphics/player.h:
 
-.././includes/BMP280_SPI/BMP280_SPI.h:
+../includes/SpaceInvaders/Graphics/bullet.h:
 
-.././includes/WindSpeed/windSpeed.h:
+../includes/SpaceInvaders/../Ethernet/test_web_client.h:
 
-.././includes/HIH8120/hih8120.h:
-
-.././includes/Ethernet/test_web_client.h:
-
-.././includes/RTC/rtc.h:
-
-.././includes/RTC/stdutils.h:
-
-.././includes/FatFs/ff.h:
-
-.././includes/FatFs/integer.h:
-
-.././includes/FatFs/ffconf.h:
-
-.././Options.h:
-
-.././includes/UART/uart.h:
-
-.././includes/NokiaLCD/nokia.h:
+../includes/SpaceInvaders/../NokiaLCD/nokia.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\wdt.h:
 
-.././includes/SpaceInvaders/Space.h:
+../includes/SpaceInvaders/SplashScreen.h:

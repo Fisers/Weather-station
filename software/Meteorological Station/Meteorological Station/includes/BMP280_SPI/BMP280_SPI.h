@@ -27,3 +27,4 @@ bmp280_calib_data _bmp280_calib;
 
 extern void bmp280_init();
 extern float bmp280_readPressure();
+extern float bmp280_readTemperature();

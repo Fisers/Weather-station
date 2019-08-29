@@ -62,6 +62,7 @@ C_SRCS +=  \
 ../includes/I2C/twimaster.c \
 ../includes/NokiaLCD/nokia.c \
 ../includes/RTC/rtc.c \
+../includes/SpaceInvaders/Space.c \
 ../includes/SPI/SPI.c \
 ../includes/UART/uart.c \
 ../includes/WindSpeed/windSpeed.c \
@@ -87,6 +88,7 @@ includes/HIH8120/hih8120.o \
 includes/I2C/twimaster.o \
 includes/NokiaLCD/nokia.o \
 includes/RTC/rtc.o \
+includes/SpaceInvaders/Space.o \
 includes/SPI/SPI.o \
 includes/UART/uart.o \
 includes/WindSpeed/windSpeed.o \
@@ -105,6 +107,7 @@ includes/HIH8120/hih8120.o \
 includes/I2C/twimaster.o \
 includes/NokiaLCD/nokia.o \
 includes/RTC/rtc.o \
+includes/SpaceInvaders/Space.o \
 includes/SPI/SPI.o \
 includes/UART/uart.o \
 includes/WindSpeed/windSpeed.o \
@@ -123,6 +126,7 @@ includes/HIH8120/hih8120.d \
 includes/I2C/twimaster.d \
 includes/NokiaLCD/nokia.d \
 includes/RTC/rtc.d \
+includes/SpaceInvaders/Space.d \
 includes/SPI/SPI.d \
 includes/UART/uart.d \
 includes/WindSpeed/windSpeed.d \
@@ -141,6 +145,7 @@ includes/HIH8120/hih8120.d \
 includes/I2C/twimaster.d \
 includes/NokiaLCD/nokia.d \
 includes/RTC/rtc.d \
+includes/SpaceInvaders/Space.d \
 includes/SPI/SPI.d \
 includes/UART/uart.d \
 includes/WindSpeed/windSpeed.d \
@@ -238,6 +243,13 @@ includes/NokiaLCD/nokia.o: ../includes/NokiaLCD/nokia.c
 	
 
 includes/RTC/rtc.o: ../includes/RTC/rtc.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+includes/SpaceInvaders/Space.o: ../includes/SpaceInvaders/Space.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -mrelax -g2 -Wall -mmcu=atmega1284p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.209\gcc\dev\atmega1284p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

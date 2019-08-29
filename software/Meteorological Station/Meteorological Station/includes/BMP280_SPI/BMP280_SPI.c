@@ -9,6 +9,7 @@
 #include "BMP280_SPI.h"
 #include "../SPI/SPI.h"
 #include "../../Options.h"
+#include "../HIH8120/hih8120.h"
 
 static void readCalibration() {
 	_bmp280_calib.dig_T1 = spi_read16(0x88, BMP_CS);
@@ -82,7 +83,19 @@ float bmp280_readPressure()
 	spi_BurstRead(0xF7, data, 6, BMP_CS);
 	tempUncomp = ((uint32_t)data[3]<<12) | ((uint32_t)data[4] << 4) | data[5]; // 20 bit temp val
 	pressureUncomp = ((uint32_t)data[0]<<12) | ((uint32_t)data[1] << 4) | data[2]; // 20 bit pressure value
-	bmp280_compensate_T_int32(tempUncomp);
+	t_fine = ((((int32_t)(hih8120_temperature_C * 100) << 8) - 128) / 5);
+	//bmp280_compensate_T_int32(tempUncomp);
 	return bmp280_compensate_pressure(pressureUncomp);
+}
+
+float bmp280_readTemperature()
+{
+	uint8_t data[6]; // Array to hold temp/pressure values (pressure in indices 0:2, and temp in indices 3:5)
+	uint32_t pressureUncomp, tempUncomp;
+	
+	spi_BurstRead(0xF7, data, 6, BMP_CS);
+	tempUncomp = ((uint32_t)data[3]<<12) | ((uint32_t)data[4] << 4) | data[5]; // 20 bit temp val
+	pressureUncomp = ((uint32_t)data[0]<<12) | ((uint32_t)data[1] << 4) | data[2]; // 20 bit pressure value
+	return bmp280_compensate_T_int32(tempUncomp);
 }
 

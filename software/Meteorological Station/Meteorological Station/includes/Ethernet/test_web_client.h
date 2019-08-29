@@ -14,6 +14,7 @@ extern volatile uint8_t sec;
 void Ether_init();
 void Ether_SendPacket(char* text);
 void init_cnt2(void);
+void software_reset();
 
 
 

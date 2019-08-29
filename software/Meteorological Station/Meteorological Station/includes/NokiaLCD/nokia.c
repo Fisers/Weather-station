@@ -91,7 +91,7 @@ void N5110_clear()					/* clear the Display */
 	PORT_LCD &= ~(1<<LCD_DC);
 	PORT_LCD |= (1<<LCD_SCE);
 }
-#include "../SpaceInvaders/SplashScreen.h"
+
 void N5110_image(const unsigned char *image_data, int8_t inverted)		/* clear the Display */
 {
 	PORT_LCD &= ~(1<<LCD_SCE);
@@ -100,7 +100,7 @@ void N5110_image(const unsigned char *image_data, int8_t inverted)		/* clear the
 	{
 		for (int k=0; k<=503; k++)
 		{
-			spi_rwSPI(pgm_read_byte(SplashScreen + k));
+			spi_rwSPI(pgm_read_byte(image_data + k));
 		}
 	}
 	else

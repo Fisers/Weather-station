@@ -1,3 +1,6 @@
+#ifndef MAIN_H_
+#define MAIN_H_
+
 #include "includes/SPI/SPI.h"
 #include "includes/I2C/i2cmaster.h"
 #include "includes/BMP280_SPI/BMP280_SPI.h"
@@ -10,5 +13,9 @@
 #include "includes/UART/uart.h"
 #include "includes/NokiaLCD/nokia.h"
 
+
+
 FILE uart_output = FDEV_SETUP_STREAM(uart_putchar, NULL, _FDEV_SETUP_WRITE);
 FILE uart_input = FDEV_SETUP_STREAM(NULL, uart_getchar, _FDEV_SETUP_READ);
+
+#endif

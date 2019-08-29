@@ -52,11 +52,14 @@ void wind_initWindSpeed()
 
 float wind_measureFrequency()
 {
+	restartTimer();
 	if (flag>=2)
 	{
 		flag =0;
 		period= (t_2-t_1);
 		TIFR1=(1<<ICF1);
+		
+		
 		
 		return (16000000UL/period)/256;
 	}

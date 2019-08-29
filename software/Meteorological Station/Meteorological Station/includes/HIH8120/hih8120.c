@@ -29,9 +29,12 @@ void hih8120_measure()
 	
  	// Calculate Relative Humidity
  	hih8120_humidity = (float)((((humidity_hi & 0x3f) << 8) | humidity_lo) / ((pow(2,14) - 2)) * 100);
+
+	 //hih8120_humidity = humidity_lo;
+	 //hih8120_temperature_C = humidity_hi;
  
  	// Calculate Temperature
- 	hih8120_temperature_C = (float) ((((temp_hi << 6) + (temp_lo >> 2)) / (pow(2, 14) - 2)) * 165 - 40);
+ 	hih8120_temperature_C = (float) ((((temp_hi << 6) | (temp_lo >> 2)) / (pow(2, 14) - 2)) * 165 - 40);
 	 
 	 
 }

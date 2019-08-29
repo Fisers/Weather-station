@@ -14,7 +14,8 @@ includes/BMP280_SPI/BMP280_SPI.d includes/BMP280_SPI/BMP280_SPI.o: \
  ../includes/BMP280_SPI/BMP280_SPI.h ../includes/BMP280_SPI/../SPI/SPI.h \
  ../includes/BMP280_SPI/../../Options.h \
  ../includes/BMP280_SPI/../../includes/RTC/rtc.h \
- ../includes/BMP280_SPI/../../includes/RTC/stdutils.h
+ ../includes/BMP280_SPI/../../includes/RTC/stdutils.h \
+ ../includes/BMP280_SPI/../HIH8120/hih8120.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -47,3 +48,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../includes/BMP280_SPI/../../includes/RTC/rtc.h:
 
 ../includes/BMP280_SPI/../../includes/RTC/stdutils.h:
+
+../includes/BMP280_SPI/../HIH8120/hih8120.h:

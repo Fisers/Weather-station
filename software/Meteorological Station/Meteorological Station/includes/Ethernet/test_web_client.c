@@ -19,9 +19,10 @@
 #include <avr/wdt.h>  
 
 static uint8_t mymac[6] = {0x54,0x55,0x58,0x10,0x00,0x29};
-uint8_t myip[4] = {192,168,0,150};
+uint8_t myip[4] = {192,168,0,110};
 char serverip[16] = "192.168.0.100";
 #define MYWWWPORT 80
+uint16_t SERVERPORT = 80;
 uint8_t gwip[4] = {192,168,0,1};
 //
 // --- there should not be any need to changes things below this line ---
@@ -33,7 +34,7 @@ static uint8_t otherside_www_ip[4]; // will be filled by dnslkup
 //
 //
 //
-#define BUFFER_SIZE 3000
+#define BUFFER_SIZE 5000
 static uint8_t buf[BUFFER_SIZE+1];
 volatile uint8_t sec=0;
 static volatile uint8_t cnt2step=0;
@@ -175,39 +176,47 @@ uint32_t print_settings(uint8_t *buf)
 	//plen=fill_tcp_data_p(buf,plen,PSTR("<meta charset=UTF-8>\n"));
 	plen=fill_tcp_data_p(buf,plen,PSTR("<body>\n<div class=center>\n<h2>Weather Station</h2>\n<table>\n"));
 	
-	plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<th>Settings</th>\n</tr>"));
+	plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<th>Settings</th>\n</tr>\n"));
 
 	
-	plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<td>\n<form action=/ method=get>\nWeather Station IP: <input type=text size=12 name=myip value="));
+	plen=fill_tcp_data_p(buf,plen,PSTR("<tr><td><form action=/ method=get>Weather Station IP: <input type=text size=12 name=myip value=\""));
 	sprintf(charMyIP, "%d.%d.%d.%d", myip[0], myip[1], myip[2], myip[3]);
 	plen=fill_tcp_data(buf,plen,charMyIP);
-	plen=fill_tcp_data_p(buf,plen,PSTR("></input>\n</td>\n</tr>"));
+	plen=fill_tcp_data_p(buf,plen,PSTR("\" /></td></tr>\n"));
 	
 	
-	plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<td>\nDestination IP: <input type=text size=12 name=servip value="));
+	plen=fill_tcp_data_p(buf,plen,PSTR("<tr><td>Destination IP: <input type=text size=12 name=servip value=\""));
 	plen=fill_tcp_data(buf,plen,serverip);
-	plen=fill_tcp_data_p(buf,plen,PSTR("></input>\n</td>\n</tr>"));
+	plen=fill_tcp_data_p(buf,plen,PSTR("\" /></td></tr>\n"));
 	
 	
-	plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<td>\nGateway IP: <input type=text size=12 name=gwip value="));
+	plen=fill_tcp_data_p(buf,plen,PSTR("<tr><td>Gateway IP: <input type=text size=12 name=gwip value=\""));
 	sprintf(charGWIP, "%d.%d.%d.%d", gwip[0], gwip[1], gwip[2], gwip[3]);
 	plen=fill_tcp_data(buf,plen,charGWIP);
-	plen=fill_tcp_data_p(buf,plen,PSTR("></input>\n</td>\n</tr>"));
+	plen=fill_tcp_data_p(buf,plen,PSTR("\" /></td></tr>\n"));
 	//
+ 	char port[8];
+ 	// 	plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<td>\nPort: <input type=text size=12 name=port value="));
+ 	dtostrf(SERVERPORT,1,0,port);
+ 	plen=fill_tcp_data_p(buf,plen,PSTR("<tr><td>Port: <input type=text size=6 name=port value=\""));
+ 	plen=fill_tcp_data(buf,plen,port);
+ 	plen=fill_tcp_data_p(buf,plen,PSTR("\" /></td></tr>\n"));
 	
-	plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<td>\nTimeout (Seconds): <input type=text size=12 name=timeout value="));
+	plen=fill_tcp_data_p(buf,plen,PSTR("<tr><td>Timeout (Seconds): <input type=text size=12 name=timeout value=\""));
 	itoa(timeout,vstr,10);
 	plen=fill_tcp_data(buf,plen,vstr);
-	plen=fill_tcp_data_p(buf,plen,PSTR("></input>\n</td>\n</tr>\n"));
+	plen=fill_tcp_data_p(buf,plen,PSTR("\" /></td></tr>\n"));
 	
-	plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<td>\nHolla Sensor: <input type=text size=12 name=hall value="));
+	plen=fill_tcp_data_p(buf,plen,PSTR("<tr><td>Hall Sensor: <input type=text size=12 name=hall value=\""));
  	itoa(halleff,vstr,10);
  	plen=fill_tcp_data(buf,plen,vstr);
-	plen=fill_tcp_data_p(buf,plen,PSTR("></input>\n</td>\n</tr>\n\n"));
+	plen=fill_tcp_data_p(buf,plen,PSTR("\" /></td></tr>\n"));
+	
+	
 	//
-	plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<td class=button><input type=submit value=\"Confirm\" style=\"width:100%\"></td>\n</tr>\n</form>"));
-	plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<td class=button><input type=\"submit\" value=\"Restart\" style=\"width:100%\" onclick=\"window.location='/reset';\" /></td>\n</tr>\n"));
-	plen=fill_tcp_data_p(buf,plen,PSTR("\n</table>\n"));
+	plen=fill_tcp_data_p(buf,plen,PSTR("<tr><td class=button><input type=submit value=\"Confirm\" style=\"width:100%\"></td></tr>\n</form>"));
+	plen=fill_tcp_data_p(buf,plen,PSTR("<tr><td class=button><input type=\"submit\" value=\"Restart\" style=\"width:100%\" onclick=\"window.location='/reset';\" /></td></tr>\n"));
+	plen=fill_tcp_data_p(buf,plen,PSTR("</table>\n"));
 	plen=fill_tcp_data_p(buf,plen,PSTR("<input type=\"submit\" value=\"Home\" style=\"width:100%\" onclick=\"window.location='/home';\" />\n"));
 	//plen=fill_tcp_data_p(buf,plen,PSTR("<input type=\"submit\" value=\"Information\" style=\"width:100%\" onclick=\"window.location='/';\" />\n</table></form>"));
 	//plen=fill_tcp_data_p(buf,plen,PSTR("<tr>\n<td class=button><input type=submit value=\"Confirm\" style=\"width:100%\"></td>\n</tr>\n</table></form>"));
@@ -324,7 +333,7 @@ int8_t analyse_get_url(char *str)
 // 		mn = 3;
 // 	}
 	// str is now something like ?pw=secret&mn=0 or just end of url
-	if (find_key_val(str,kvalstrbuf,16,"arip")){
+	if (find_key_val(str,kvalstrbuf,16,"myip")){
 		stringToIntArray(myip, kvalstrbuf, (uint8_t*)0x20);
 		mn = 1;
 	}
@@ -335,6 +344,11 @@ int8_t analyse_get_url(char *str)
 	}
 	if (find_key_val(str,kvalstrbuf,16,"gwip")){
 		stringToIntArray(gwip, kvalstrbuf, (uint8_t*)0x40);
+		mn = 1;
+	}
+	if (find_key_val(str,kvalstrbuf,10,"port")){
+		SERVERPORT = atoi(kvalstrbuf);
+		eeprom_write_word((uint16_t*)0x70, (uint16_t)SERVERPORT);
 		mn = 1;
 	}
 	if (find_key_val(str,kvalstrbuf,10,"timeout")){
@@ -382,11 +396,9 @@ int8_t analyse_get_url(char *str)
 
 void Ether_SendPacket(char* text){
 	uint16_t dat_p,plen;
-
-	PORT_CS &= ~(1 << ETHER_CS);
+	
 	if(sec > timeout)
 	{
-		PORT_CS |= (1 << ETHER_CS);
 		sendingPacket = 0;
 		start_web_client = 1;
 		return;
@@ -401,8 +413,10 @@ void Ether_SendPacket(char* text){
 		{
 			sec = 0;
 			start_web_client = 0;
-			
-			client_tcpSend(text,&browserresult_callback,otherside_www_ip,gwmac,(uint8_t*)81);
+			client_tcpSend(text,&browserresult_callback,otherside_www_ip,gwmac,SERVERPORT);
+			//client_http_post(PSTR("/api/statuses/update.xml"),"",PSTR("192.168.0.100"),NULL,text,&browserresult_callback,otherside_www_ip,gwmac);
+			return;
+			//
 			
 		}
 	}
@@ -446,7 +460,6 @@ void Ether_SendPacket(char* text){
 			dat_p=fill_tcp_data_p(buf,dat_p,PSTR("location.href = 'http://"));
 			dat_p=fill_tcp_data(buf,dat_p,charMyIP);
 			dat_p=fill_tcp_data_p(buf,dat_p,PSTR("/home';\n</script>\n"));
-			//dat_p=fill_tcp_data(buf,dat_p,charMyIP);
 			goto SENDTCP;
 		}
 		if(cmd == 3)
@@ -507,7 +520,13 @@ void Ether_init()
 	 www_server_port(MYWWWPORT);
 
 	 get_mac_with_arp(gwip,TRANS_NUM_GWMAC,&arpresolver_result_callback);
+	 sec = 0;
 	 while(get_mac_with_arp_wait()){
+		 if(sec > 10)
+		 {
+			 processing_state=4;
+			 break;
+		 }
 		 // to process the ARP reply we must call the packetloop
 		 plen=enc28j60PacketReceive(BUFFER_SIZE, buf);
 		 packetloop_arp_icmp_tcp(buf,plen);
